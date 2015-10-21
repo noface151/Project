@@ -1,0 +1,5 @@
+D:\QLKHO\QUANLYKHO\Properties\bin\Debug\Properties.dll
+D:\QLKHO\QUANLYKHO\Properties\bin\Debug\Properties.pdb
+D:\QLKHO\QUANLYKHO\Properties\obj\Debug\Properties.csprojResolveAssemblyReference.cache
+D:\QLKHO\QUANLYKHO\Properties\obj\Debug\Properties.dll
+D:\QLKHO\QUANLYKHO\Properties\obj\Debug\Properties.pdb

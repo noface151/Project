@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBQLKhoModelStoreContainer" CdmEntityContainer="DBQLKhoEntities">
+    <EntitySetMapping Name="ChiTietDatHangNCC">
+      <EntityTypeMapping TypeName="DBQLKhoModel.ChiTietDatHangNCC">
+        <MappingFragment StoreEntitySet="ChiTietDatHangNCC">
+          <ScalarProperty Name="IDDonDatHang" ColumnName="IDDonDatHang" />
+          <ScalarProperty Name="IDHangHoa" ColumnName="IDHangHoa" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietHoaDonNCC">
+      <EntityTypeMapping TypeName="DBQLKhoModel.ChiTietHoaDonNCC">
+        <MappingFragment StoreEntitySet="ChiTietHoaDonNCC">
+          <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+          <ScalarProperty Name="IDHangHoa" ColumnName="IDHangHoa" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietNhapHang">
+      <EntityTypeMapping TypeName="DBQLKhoModel.ChiTietNhapHang">
+        <MappingFragment StoreEntitySet="ChiTietNhapHang">
+          <ScalarProperty Name="IDHangHoa" ColumnName="IDHangHoa" />
+          <ScalarProperty Name="IDPhieuNhap" ColumnName="IDPhieuNhap" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietXuatHang">
+      <EntityTypeMapping TypeName="DBQLKhoModel.ChiTietXuatHang">
+        <MappingFragment StoreEntitySet="ChiTietXuatHang">
+          <ScalarProperty Name="IDHangHoa" ColumnName="IDHangHoa" />
+          <ScalarProperty Name="IDPhieuXuat" ColumnName="IDPhieuXuat" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietYeuCau">
+      <EntityTypeMapping TypeName="DBQLKhoModel.ChiTietYeuCau">
+        <MappingFragment StoreEntitySet="ChiTietYeuCau">
+          <ScalarProperty Name="IDYeuCau" ColumnName="IDYeuCau" />
+          <ScalarProperty Name="IDHangHoa" ColumnName="IDHangHoa" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhMucHangHoa">
+      <EntityTypeMapping TypeName="DBQLKhoModel.DanhMucHangHoa">
+        <MappingFragment StoreEntitySet="DanhMucHangHoa">
+          <ScalarProperty Name="IDDanhMuc" ColumnName="IDDanhMuc" />
+          <ScalarProperty Name="MoTaDanhMuc" ColumnName="MoTaDanhMuc" />
+          <ScalarProperty Name="ThueVAT" ColumnName="ThueVAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonDatHangNCC">
+      <EntityTypeMapping TypeName="DBQLKhoModel.DonDatHangNCC">
+        <MappingFragment StoreEntitySet="DonDatHangNCC">
+          <ScalarProperty Name="IDDonDatHang" ColumnName="IDDonDatHang" />
+          <ScalarProperty Name="IDNhaCungCap" ColumnName="IDNhaCungCap" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HangHoa">
+      <EntityTypeMapping TypeName="DBQLKhoModel.HangHoa">
+        <MappingFragment StoreEntitySet="HangHoa">
+          <ScalarProperty Name="IDHangHoa" ColumnName="IDHangHoa" />
+          <ScalarProperty Name="IDNhaCungCap" ColumnName="IDNhaCungCap" />
+          <ScalarProperty Name="IDDanhMuc" ColumnName="IDDanhMuc" />
+          <ScalarProperty Name="TenHangHoa" ColumnName="TenHangHoa" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="MoTaHangHoa" ColumnName="MoTaHangHoa" />
+          <ScalarProperty Name="DangKinhDoanh" ColumnName="DangKinhDoanh" />
+          <ScalarProperty Name="SoLuongHangHoa" ColumnName="SoLuongHangHoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDonNCC">
+      <EntityTypeMapping TypeName="DBQLKhoModel.HoaDonNCC">
+        <MappingFragment StoreEntitySet="HoaDonNCC">
+          <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+          <ScalarProperty Name="IDDonDatHang" ColumnName="IDDonDatHang" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiThanhToan">
+      <EntityTypeMapping TypeName="DBQLKhoModel.LoaiThanhToan">
+        <MappingFragment StoreEntitySet="LoaiThanhToan">
+          <ScalarProperty Name="IDLoaiThanhToan" ColumnName="IDLoaiThanhToan" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDung">
+      <EntityTypeMapping TypeName="DBQLKhoModel.NguoiDung">
+        <MappingFragment StoreEntitySet="NguoiDung">
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="IDVaiTro" ColumnName="IDVaiTro" />
+          <ScalarProperty Name="TenHienThi" ColumnName="TenHienThi" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaCungCap">
+      <EntityTypeMapping TypeName="DBQLKhoModel.NhaCungCap">
+        <MappingFragment StoreEntitySet="NhaCungCap">
+          <ScalarProperty Name="IDNhaCungCap" ColumnName="IDNhaCungCap" />
+          <ScalarProperty Name="TenNhaCungCap" ColumnName="TenNhaCungCap" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="IDTaiKhoan" ColumnName="IDTaiKhoan" />
+          <ScalarProperty Name="NgayMoTK" ColumnName="NgayMoTK" />
+          <ScalarProperty Name="TenChuTK" ColumnName="TenChuTK" />
+          <ScalarProperty Name="ChiTietTK" ColumnName="ChiTietTK" />
+          <ScalarProperty Name="ChiTietKhac" ColumnName="ChiTietKhac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuNhapHang">
+      <EntityTypeMapping TypeName="DBQLKhoModel.PhieuNhapHang">
+        <MappingFragment StoreEntitySet="PhieuNhapHang">
+          <ScalarProperty Name="IDPhieuNhap" ColumnName="IDPhieuNhap" />
+          <ScalarProperty Name="IDTinhTrang" ColumnName="IDTinhTrang" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuXuatHang">
+      <EntityTypeMapping TypeName="DBQLKhoModel.PhieuXuatHang">
+        <MappingFragment StoreEntitySet="PhieuXuatHang">
+          <ScalarProperty Name="IDPhieuXuat" ColumnName="IDPhieuXuat" />
+          <ScalarProperty Name="IDTinhTrang" ColumnName="IDTinhTrang" />
+          <ScalarProperty Name="IDYeuCau" ColumnName="IDYeuCau" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="NgayXuat" ColumnName="NgayXuat" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinhTrang">
+      <EntityTypeMapping TypeName="DBQLKhoModel.TinhTrang">
+        <MappingFragment StoreEntitySet="TinhTrang">
+          <ScalarProperty Name="IDTinhTrang" ColumnName="IDTinhTrang" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhToanNCC">
+      <EntityTypeMapping TypeName="DBQLKhoModel.ThanhToanNCC">
+        <MappingFragment StoreEntitySet="ThanhToanNCC">
+          <ScalarProperty Name="IDThanhToan" ColumnName="IDThanhToan" />
+          <ScalarProperty Name="IDNhaCungCap" ColumnName="IDNhaCungCap" />
+          <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+          <ScalarProperty Name="IDLoaiThanhToan" ColumnName="IDLoaiThanhToan" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="ChiTietKhac" ColumnName="ChiTietKhac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VaiTro">
+      <EntityTypeMapping TypeName="DBQLKhoModel.VaiTro">
+        <MappingFragment StoreEntitySet="VaiTro">
+          <ScalarProperty Name="IDVaiTro" ColumnName="IDVaiTro" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YeuCauXuatHang">
+      <EntityTypeMapping TypeName="DBQLKhoModel.YeuCauXuatHang">
+        <MappingFragment StoreEntitySet="YeuCauXuatHang">
+          <ScalarProperty Name="IDYeuCau" ColumnName="IDYeuCau" />
+          <ScalarProperty Name="IDTinhTrang" ColumnName="IDTinhTrang" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="NgayYeuCau" ColumnName="NgayYeuCau" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CongNoNCC">
+      <EntityTypeMapping TypeName="DBQLKhoModel.CongNoNCC">
+        <MappingFragment StoreEntitySet="CongNoNCC">
+          <ScalarProperty Name="IDNhaCungCap" ColumnName="IDNhaCungCap" />
+          <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+          <ScalarProperty Name="HanTra" ColumnName="HanTra" />
+          <ScalarProperty Name="SoNo" ColumnName="SoNo" />
+          <ScalarProperty Name="SoDu" ColumnName="SoDu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBQLKhoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiTietDatHangNCC">
+    <Key>
+      <PropertyRef Name="IDDonDatHang" />
+      <PropertyRef Name="IDHangHoa" />
+    </Key>
+    <Property Name="IDDonDatHang" Type="Int64" Nullable="false" />
+    <Property Name="IDHangHoa" Type="Int64" Nullable="false" />
+    <Property Name="SoLuong" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="DonDatHangNCC" Relationship="Self.ChiTietDatHangNCC_DonDatHangNCC" FromRole="ChiTietDatHangNCC" ToRole="DonDatHangNCC" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.ChiTietDatHangNCC_HangHoa" FromRole="ChiTietDatHangNCC" ToRole="HangHoa" />
+  </EntityType>
+  <EntityType Name="ChiTietHoaDonNCC">
+    <Key>
+      <PropertyRef Name="IDHoaDon" />
+      <PropertyRef Name="IDHangHoa" />
+    </Key>
+    <Property Name="IDHoaDon" Type="Int64" Nullable="false" />
+    <Property Name="IDHangHoa" Type="Int64" Nullable="false" />
+    <Property Name="SoLuong" Type="Int64" Nullable="false" />
+    <Property Name="Gia" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.ChiTietHoaDonNCC_HangHoa" FromRole="ChiTietHoaDonNCC" ToRole="HangHoa" />
+    <NavigationProperty Name="HoaDonNCC" Relationship="Self.ChiTietHoaDonNCC_HoaDonNCC" FromRole="ChiTietHoaDonNCC" ToRole="HoaDonNCC" />
+  </EntityType>
+  <EntityType Name="ChiTietNhapHang">
+    <Key>
+      <PropertyRef Name="IDHangHoa" />
+      <PropertyRef Name="IDPhieuNhap" />
+    </Key>
+    <Property Name="IDHangHoa" Type="Int64" Nullable="false" />
+    <Property Name="IDPhieuNhap" Type="Int64" Nullable="false" />
+    <Property Name="SoLuong" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.ChiTietNhapHang_HangHoa" FromRole="ChiTietNhapHang" ToRole="HangHoa" />
+    <NavigationProperty Name="PhieuNhapHang" Relationship="Self.ChiTietNhapHang_PhieuNhapHang" FromRole="ChiTietNhapHang" ToRole="PhieuNhapHang" />
+  </EntityType>
+  <EntityType Name="ChiTietXuatHang">
+    <Key>
+      <PropertyRef Name="IDHangHoa" />
+      <PropertyRef Name="IDPhieuXuat" />
+    </Key>
+    <Property Name="IDHangHoa" Type="Int64" Nullable="false" />
+    <Property Name="IDPhieuXuat" Type="Int64" Nullable="false" />
+    <Property Name="SoLuong" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.ChiTietXuatHang_HangHoa" FromRole="ChiTietXuatHang" ToRole="HangHoa" />
+    <NavigationProperty Name="PhieuXuatHang" Relationship="Self.ChiTietXuatHang_PhieuXuatHang" FromRole="ChiTietXuatHang" ToRole="PhieuXuatHang" />
+  </EntityType>
+  <EntityType Name="ChiTietYeuCau">
+    <Key>
+      <PropertyRef Name="IDYeuCau" />
+      <PropertyRef Name="IDHangHoa" />
+    </Key>
+    <Property Name="IDYeuCau" Type="Int64" Nullable="false" />
+    <Property Name="IDHangHoa" Type="Int64" Nullable="false" />
+    <Property Name="SoLuong" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.ChiTietYeuCau_HangHoa" FromRole="ChiTietYeuCau" ToRole="HangHoa" />
+    <NavigationProperty Name="YeuCauXuatHang" Relationship="Self.ChiTietYeuCau_YeuCauXuatHang" FromRole="ChiTietYeuCau" ToRole="YeuCauXuatHang" />
+  </EntityType>
+  <EntityType Name="DanhMucHangHoa">
+    <Key>
+      <PropertyRef Name="IDDanhMuc" />
+    </Key>
+    <Property Name="IDDanhMuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MoTaDanhMuc" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ThueVAT" Type="Double" Nullable="false" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.HangHoa_DanhMucHangHoa" FromRole="DanhMucHangHoa" ToRole="HangHoa" />
+  </EntityType>
+  <EntityType Name="DonDatHangNCC">
+    <Key>
+      <PropertyRef Name="IDDonDatHang" />
+    </Key>
+    <Property Name="IDDonDatHang" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNhaCungCap" Type="Int32" Nullable="false" />
+    <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GhiChu" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietDatHangNCC" Relationship="Self.ChiTietDatHangNCC_DonDatHangNCC" FromRole="DonDatHangNCC" ToRole="ChiTietDatHangNCC" />
+    <NavigationProperty Name="NhaCungCap" Relationship="Self.DonDatHangNCC_NhaCungCap" FromRole="DonDatHangNCC" ToRole="NhaCungCap" />
+    <NavigationProperty Name="HoaDonNCC" Relationship="Self.HoaDonNCC_DonDatHangNCC" FromRole="DonDatHangNCC" ToRole="HoaDonNCC" />
+  </EntityType>
+  <EntityType Name="HangHoa">
+    <Key>
+      <PropertyRef Name="IDHangHoa" />
+    </Key>
+    <Property Name="IDHangHoa" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNhaCungCap" Type="Int32" Nullable="false" />
+    <Property Name="IDDanhMuc" Type="Int32" Nullable="false" />
+    <Property Name="TenHangHoa" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GiaBan" Type="Int64" Nullable="false" />
+    <Property Name="DonViTinh" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTaHangHoa" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DangKinhDoanh" Type="Boolean" Nullable="false" />
+    <Property Name="SoLuongHangHoa" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ChiTietDatHangNCC" Relationship="Self.ChiTietDatHangNCC_HangHoa" FromRole="HangHoa" ToRole="ChiTietDatHangNCC" />
+    <NavigationProperty Name="ChiTietHoaDonNCC" Relationship="Self.ChiTietHoaDonNCC_HangHoa" FromRole="HangHoa" ToRole="ChiTietHoaDonNCC" />
+    <NavigationProperty Name="ChiTietNhapHang" Relationship="Self.ChiTietNhapHang_HangHoa" FromRole="HangHoa" ToRole="ChiTietNhapHang" />
+    <NavigationProperty Name="ChiTietXuatHang" Relationship="Self.ChiTietXuatHang_HangHoa" FromRole="HangHoa" ToRole="ChiTietXuatHang" />
+    <NavigationProperty Name="ChiTietYeuCau" Relationship="Self.ChiTietYeuCau_HangHoa" FromRole="HangHoa" ToRole="ChiTietYeuCau" />
+    <NavigationProperty Name="DanhMucHangHoa" Relationship="Self.HangHoa_DanhMucHangHoa" FromRole="HangHoa" ToRole="DanhMucHangHoa" />
+    <NavigationProperty Name="NhaCungCap" Relationship="Self.HangHoa_NhaCungCap" FromRole="HangHoa" ToRole="NhaCungCap" />
+  </EntityType>
+  <EntityType Name="HoaDonNCC">
+    <Key>
+      <PropertyRef Name="IDHoaDon" />
+    </Key>
+    <Property Name="IDHoaDon" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDDonDatHang" Type="Int64" Nullable="false" />
+    <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GhiChu" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietHoaDonNCC" Relationship="Self.ChiTietHoaDonNCC_HoaDonNCC" FromRole="HoaDonNCC" ToRole="ChiTietHoaDonNCC" />
+    <NavigationProperty Name="DonDatHangNCC" Relationship="Self.HoaDonNCC_DonDatHangNCC" FromRole="HoaDonNCC" ToRole="DonDatHangNCC" />
+    <NavigationProperty Name="CongNoNCC" Relationship="Self.CongNoNCC_HoaDonNCC" FromRole="HoaDonNCC" ToRole="CongNoNCC" />
+    <NavigationProperty Name="ThanhToanNCC" Relationship="Self.ThanhToanNCC_HoaDonNCC" FromRole="HoaDonNCC" ToRole="ThanhToanNCC" />
+  </EntityType>
+  <EntityType Name="LoaiThanhToan">
+    <Key>
+      <PropertyRef Name="IDLoaiThanhToan" />
+    </Key>
+    <Property Name="IDLoaiThanhToan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MoTa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ThanhToanNCC" Relationship="Self.ThanhToanNCC_LoaiThanhToan" FromRole="LoaiThanhToan" ToRole="ThanhToanNCC" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="IDNguoiDung" />
+    </Key>
+    <Property Name="IDNguoiDung" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDVaiTro" Type="Int32" Nullable="false" />
+    <Property Name="TenHienThi" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="VaiTro" Relationship="Self.NguoiDung_VaiTro" FromRole="NguoiDung" ToRole="VaiTro" />
+  </EntityType>
+  <EntityType Name="NhaCungCap">
+    <Key>
+      <PropertyRef Name="IDNhaCungCap" />
+    </Key>
+    <Property Name="IDNhaCungCap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhaCungCap" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDTaiKhoan" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayMoTK" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TenChuTK" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChiTietTK" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ChiTietKhac" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DonDatHangNCC" Relationship="Self.DonDatHangNCC_NhaCungCap" FromRole="NhaCungCap" ToRole="DonDatHangNCC" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.HangHoa_NhaCungCap" FromRole="NhaCungCap" ToRole="HangHoa" />
+    <NavigationProperty Name="CongNoNCC" Relationship="Self.CongNoNCC_NhaCungCap" FromRole="NhaCungCap" ToRole="CongNoNCC" />
+    <NavigationProperty Name="ThanhToanNCC" Relationship="Self.ThanhToanNCC_NhaCungCap" FromRole="NhaCungCap" ToRole="ThanhToanNCC" />
+  </EntityType>
+  <EntityType Name="PhieuNhapHang">
+    <Key>
+      <PropertyRef Name="IDPhieuNhap" />
+    </Key>
+    <Property Name="IDPhieuNhap" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTinhTrang" Type="Int32" Nullable="false" />
+    <Property Name="NguoiLap" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayNhap" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GhiChu" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietNhapHang" Relationship="Self.ChiTietNhapHang_PhieuNhapHang" FromRole="PhieuNhapHang" ToRole="ChiTietNhapHang" />
+    <NavigationProperty Name="TinhTrang" Relationship="Self.PhieuNhapHang_TinhTrang" FromRole="PhieuNhapHang" ToRole="TinhTrang" />
+  </EntityType>
+  <EntityType Name="PhieuXuatHang">
+    <Key>
+      <PropertyRef Name="IDPhieuXuat" />
+    </Key>
+    <Property Name="IDPhieuXuat" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTinhTrang" Type="Int32" Nullable="false" />
+    <Property Name="IDYeuCau" Type="Int64" Nullable="false" />
+    <Property Name="NguoiLap" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayXuat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GhiChu" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietXuatHang" Relationship="Self.ChiTietXuatHang_PhieuXuatHang" FromRole="PhieuXuatHang" ToRole="ChiTietXuatHang" />
+    <NavigationProperty Name="TinhTrang" Relationship="Self.PhieuXuatHang_TinhTrang" FromRole="PhieuXuatHang" ToRole="TinhTrang" />
+    <NavigationProperty Name="YeuCauXuatHang" Relationship="Self.PhieuXuatHang_YeuCauXuatHang" FromRole="PhieuXuatHang" ToRole="YeuCauXuatHang" />
+  </EntityType>
+  <EntityType Name="TinhTrang">
+    <Key>
+      <PropertyRef Name="IDTinhTrang" />
+    </Key>
+    <Property Name="IDTinhTrang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MoTa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PhieuNhapHang" Relationship="Self.PhieuNhapHang_TinhTrang" FromRole="TinhTrang" ToRole="PhieuNhapHang" />
+    <NavigationProperty Name="PhieuXuatHang" Relationship="Self.PhieuXuatHang_TinhTrang" FromRole="TinhTrang" ToRole="PhieuXuatHang" />
+    <NavigationProperty Name="YeuCauXuatHang" Relationship="Self.YeuCauXuatHang_TinhTrang" FromRole="TinhTrang" ToRole="YeuCauXuatHang" />
+  </EntityType>
+  <EntityType Name="ThanhToanNCC">
+    <Key>
+      <PropertyRef Name="IDThanhToan" />
+    </Key>
+    <Property Name="IDThanhToan" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNhaCungCap" Type="Int32" Nullable="false" />
+    <Property Name="IDHoaDon" Type="Int64" Nullable="false" />
+    <Property Name="IDLoaiThanhToan" Type="Int32" Nullable="false" />
+    <Property Name="NgayThanhToan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoTien" Type="Int64" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChiTietKhac" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HoaDonNCC" Relationship="Self.ThanhToanNCC_HoaDonNCC" FromRole="ThanhToanNCC" ToRole="HoaDonNCC" />
+    <NavigationProperty Name="LoaiThanhToan" Relationship="Self.ThanhToanNCC_LoaiThanhToan" FromRole="ThanhToanNCC" ToRole="LoaiThanhToan" />
+    <NavigationProperty Name="NhaCungCap" Relationship="Self.ThanhToanNCC_NhaCungCap" FromRole="ThanhToanNCC" ToRole="NhaCungCap" />
+  </EntityType>
+  <EntityType Name="VaiTro">
+    <Key>
+      <PropertyRef Name="IDVaiTro" />
+    </Key>
+    <Property Name="IDVaiTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MoTa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="NguoiDung" Relationship="Self.NguoiDung_VaiTro" FromRole="VaiTro" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="YeuCauXuatHang">
+    <Key>
+      <PropertyRef Name="IDYeuCau" />
+    </Key>
+    <Property Name="IDYeuCau" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTinhTrang" Type="Int32" Nullable="false" />
+    <Property Name="NguoiLap" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayYeuCau" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GhiChu" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietYeuCau" Relationship="Self.ChiTietYeuCau_YeuCauXuatHang" FromRole="YeuCauXuatHang" ToRole="ChiTietYeuCau" />
+    <NavigationProperty Name="PhieuXuatHang" Relationship="Self.PhieuXuatHang_YeuCauXuatHang" FromRole="YeuCauXuatHang" ToRole="PhieuXuatHang" />
+    <NavigationProperty Name="TinhTrang" Relationship="Self.YeuCauXuatHang_TinhTrang" FromRole="YeuCauXuatHang" ToRole="TinhTrang" />
+  </EntityType>
+  <EntityType Name="CongNoNCC">
+    <Key>
+      <PropertyRef Name="IDNhaCungCap" />
+      <PropertyRef Name="IDHoaDon" />
+      <PropertyRef Name="HanTra" />
+      <PropertyRef Name="SoNo" />
+      <PropertyRef Name="SoDu" />
+    </Key>
+    <Property Name="IDNhaCungCap" Type="Int32" Nullable="false" />
+    <Property Name="IDHoaDon" Type="Int64" Nullable="false" />
+    <Property Name="HanTra" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoNo" Type="Int64" Nullable="false" />
+    <Property Name="SoDu" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="HoaDonNCC" Relationship="Self.CongNoNCC_HoaDonNCC" FromRole="CongNoNCC" ToRole="HoaDonNCC" />
+    <NavigationProperty Name="NhaCungCap" Relationship="Self.CongNoNCC_NhaCungCap" FromRole="CongNoNCC" ToRole="NhaCungCap" />
+  </EntityType>
+  <Association Name="ChiTietDatHangNCC_DonDatHangNCC">
+    <End Role="DonDatHangNCC" Type="Self.DonDatHangNCC" Multiplicity="1" />
+    <End Role="ChiTietDatHangNCC" Type="Self.ChiTietDatHangNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonDatHangNCC">
+        <PropertyRef Name="IDDonDatHang" />
+      </Principal>
+      <Dependent Role="ChiTietDatHangNCC">
+        <PropertyRef Name="IDDonDatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietDatHangNCC_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="ChiTietDatHangNCC" Type="Self.ChiTietDatHangNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="IDHangHoa" />
+      </Principal>
+      <Dependent Role="ChiTietDatHangNCC">
+        <PropertyRef Name="IDHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietHoaDonNCC_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="ChiTietHoaDonNCC" Type="Self.ChiTietHoaDonNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="IDHangHoa" />
+      </Principal>
+      <Dependent Role="ChiTietHoaDonNCC">
+        <PropertyRef Name="IDHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietHoaDonNCC_HoaDonNCC">
+    <End Role="HoaDonNCC" Type="Self.HoaDonNCC" Multiplicity="1" />
+    <End Role="ChiTietHoaDonNCC" Type="Self.ChiTietHoaDonNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDonNCC">
+        <PropertyRef Name="IDHoaDon" />
+      </Principal>
+      <Dependent Role="ChiTietHoaDonNCC">
+        <PropertyRef Name="IDHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietNhapHang_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="ChiTietNhapHang" Type="Self.ChiTietNhapHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="IDHangHoa" />
+      </Principal>
+      <Dependent Role="ChiTietNhapHang">
+        <PropertyRef Name="IDHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietNhapHang_PhieuNhapHang">
+    <End Role="PhieuNhapHang" Type="Self.PhieuNhapHang" Multiplicity="1" />
+    <End Role="ChiTietNhapHang" Type="Self.ChiTietNhapHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuNhapHang">
+        <PropertyRef Name="IDPhieuNhap" />
+      </Principal>
+      <Dependent Role="ChiTietNhapHang">
+        <PropertyRef Name="IDPhieuNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietXuatHang_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="ChiTietXuatHang" Type="Self.ChiTietXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="IDHangHoa" />
+      </Principal>
+      <Dependent Role="ChiTietXuatHang">
+        <PropertyRef Name="IDHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietXuatHang_PhieuXuatHang">
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="1" />
+    <End Role="ChiTietXuatHang" Type="Self.ChiTietXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuXuatHang">
+        <PropertyRef Name="IDPhieuXuat" />
+      </Principal>
+      <Dependent Role="ChiTietXuatHang">
+        <PropertyRef Name="IDPhieuXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietYeuCau_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="ChiTietYeuCau" Type="Self.ChiTietYeuCau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="IDHangHoa" />
+      </Principal>
+      <Dependent Role="ChiTietYeuCau">
+        <PropertyRef Name="IDHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietYeuCau_YeuCauXuatHang">
+    <End Role="YeuCauXuatHang" Type="Self.YeuCauXuatHang" Multiplicity="1" />
+    <End Role="ChiTietYeuCau" Type="Self.ChiTietYeuCau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YeuCauXuatHang">
+        <PropertyRef Name="IDYeuCau" />
+      </Principal>
+      <Dependent Role="ChiTietYeuCau">
+        <PropertyRef Name="IDYeuCau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HangHoa_DanhMucHangHoa">
+    <End Role="DanhMucHangHoa" Type="Self.DanhMucHangHoa" Multiplicity="1" />
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanhMucHangHoa">
+        <PropertyRef Name="IDDanhMuc" />
+      </Principal>
+      <Dependent Role="HangHoa">
+        <PropertyRef Name="IDDanhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DonDatHangNCC_NhaCungCap">
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
+    <End Role="DonDatHangNCC" Type="Self.DonDatHangNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Principal>
+      <Dependent Role="DonDatHangNCC">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HoaDonNCC_DonDatHangNCC">
+    <End Role="DonDatHangNCC" Type="Self.DonDatHangNCC" Multiplicity="1" />
+    <End Role="HoaDonNCC" Type="Self.HoaDonNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonDatHangNCC">
+        <PropertyRef Name="IDDonDatHang" />
+      </Principal>
+      <Dependent Role="HoaDonNCC">
+        <PropertyRef Name="IDDonDatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HangHoa_NhaCungCap">
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Principal>
+      <Dependent Role="HangHoa">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CongNoNCC_HoaDonNCC">
+    <End Role="HoaDonNCC" Type="Self.HoaDonNCC" Multiplicity="1" />
+    <End Role="CongNoNCC" Type="Self.CongNoNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDonNCC">
+        <PropertyRef Name="IDHoaDon" />
+      </Principal>
+      <Dependent Role="CongNoNCC">
+        <PropertyRef Name="IDHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ThanhToanNCC_HoaDonNCC">
+    <End Role="HoaDonNCC" Type="Self.HoaDonNCC" Multiplicity="1" />
+    <End Role="ThanhToanNCC" Type="Self.ThanhToanNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDonNCC">
+        <PropertyRef Name="IDHoaDon" />
+      </Principal>
+      <Dependent Role="ThanhToanNCC">
+        <PropertyRef Name="IDHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ThanhToanNCC_LoaiThanhToan">
+    <End Role="LoaiThanhToan" Type="Self.LoaiThanhToan" Multiplicity="1" />
+    <End Role="ThanhToanNCC" Type="Self.ThanhToanNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiThanhToan">
+        <PropertyRef Name="IDLoaiThanhToan" />
+      </Principal>
+      <Dependent Role="ThanhToanNCC">
+        <PropertyRef Name="IDLoaiThanhToan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NguoiDung_VaiTro">
+    <End Role="VaiTro" Type="Self.VaiTro" Multiplicity="1" />
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VaiTro">
+        <PropertyRef Name="IDVaiTro" />
+      </Principal>
+      <Dependent Role="NguoiDung">
+        <PropertyRef Name="IDVaiTro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CongNoNCC_NhaCungCap">
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
+    <End Role="CongNoNCC" Type="Self.CongNoNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Principal>
+      <Dependent Role="CongNoNCC">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ThanhToanNCC_NhaCungCap">
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
+    <End Role="ThanhToanNCC" Type="Self.ThanhToanNCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Principal>
+      <Dependent Role="ThanhToanNCC">
+        <PropertyRef Name="IDNhaCungCap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PhieuNhapHang_TinhTrang">
+    <End Role="TinhTrang" Type="Self.TinhTrang" Multiplicity="1" />
+    <End Role="PhieuNhapHang" Type="Self.PhieuNhapHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhTrang">
+        <PropertyRef Name="IDTinhTrang" />
+      </Principal>
+      <Dependent Role="PhieuNhapHang">
+        <PropertyRef Name="IDTinhTrang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PhieuXuatHang_TinhTrang">
+    <End Role="TinhTrang" Type="Self.TinhTrang" Multiplicity="1" />
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhTrang">
+        <PropertyRef Name="IDTinhTrang" />
+      </Principal>
+      <Dependent Role="PhieuXuatHang">
+        <PropertyRef Name="IDTinhTrang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PhieuXuatHang_YeuCauXuatHang">
+    <End Role="YeuCauXuatHang" Type="Self.YeuCauXuatHang" Multiplicity="1" />
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YeuCauXuatHang">
+        <PropertyRef Name="IDYeuCau" />
+      </Principal>
+      <Dependent Role="PhieuXuatHang">
+        <PropertyRef Name="IDYeuCau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="YeuCauXuatHang_TinhTrang">
+    <End Role="TinhTrang" Type="Self.TinhTrang" Multiplicity="1" />
+    <End Role="YeuCauXuatHang" Type="Self.YeuCauXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhTrang">
+        <PropertyRef Name="IDTinhTrang" />
+      </Principal>
+      <Dependent Role="YeuCauXuatHang">
+        <PropertyRef Name="IDTinhTrang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBQLKhoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietDatHangNCC" EntityType="Self.ChiTietDatHangNCC" />
+    <EntitySet Name="ChiTietHoaDonNCC" EntityType="Self.ChiTietHoaDonNCC" />
+    <EntitySet Name="ChiTietNhapHang" EntityType="Self.ChiTietNhapHang" />
+    <EntitySet Name="ChiTietXuatHang" EntityType="Self.ChiTietXuatHang" />
+    <EntitySet Name="ChiTietYeuCau" EntityType="Self.ChiTietYeuCau" />
+    <EntitySet Name="DanhMucHangHoa" EntityType="Self.DanhMucHangHoa" />
+    <EntitySet Name="DonDatHangNCC" EntityType="Self.DonDatHangNCC" />
+    <EntitySet Name="HangHoa" EntityType="Self.HangHoa" />
+    <EntitySet Name="HoaDonNCC" EntityType="Self.HoaDonNCC" />
+    <EntitySet Name="LoaiThanhToan" EntityType="Self.LoaiThanhToan" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" />
+    <EntitySet Name="NhaCungCap" EntityType="Self.NhaCungCap" />
+    <EntitySet Name="PhieuNhapHang" EntityType="Self.PhieuNhapHang" />
+    <EntitySet Name="PhieuXuatHang" EntityType="Self.PhieuXuatHang" />
+    <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" />
+    <EntitySet Name="ThanhToanNCC" EntityType="Self.ThanhToanNCC" />
+    <EntitySet Name="VaiTro" EntityType="Self.VaiTro" />
+    <EntitySet Name="YeuCauXuatHang" EntityType="Self.YeuCauXuatHang" />
+    <EntitySet Name="CongNoNCC" EntityType="Self.CongNoNCC" />
+    <AssociationSet Name="ChiTietDatHangNCC_DonDatHangNCC" Association="Self.ChiTietDatHangNCC_DonDatHangNCC">
+      <End Role="DonDatHangNCC" EntitySet="DonDatHangNCC" />
+      <End Role="ChiTietDatHangNCC" EntitySet="ChiTietDatHangNCC" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietDatHangNCC_HangHoa" Association="Self.ChiTietDatHangNCC_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoa" />
+      <End Role="ChiTietDatHangNCC" EntitySet="ChiTietDatHangNCC" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietHoaDonNCC_HangHoa" Association="Self.ChiTietHoaDonNCC_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoa" />
+      <End Role="ChiTietHoaDonNCC" EntitySet="ChiTietHoaDonNCC" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietHoaDonNCC_HoaDonNCC" Association="Self.ChiTietHoaDonNCC_HoaDonNCC">
+      <End Role="HoaDonNCC" EntitySet="HoaDonNCC" />
+      <End Role="ChiTietHoaDonNCC" EntitySet="ChiTietHoaDonNCC" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietNhapHang_HangHoa" Association="Self.ChiTietNhapHang_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoa" />
+      <End Role="ChiTietNhapHang" EntitySet="ChiTietNhapHang" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietNhapHang_PhieuNhapHang" Association="Self.ChiTietNhapHang_PhieuNhapHang">
+      <End Role="PhieuNhapHang" EntitySet="PhieuNhapHang" />
+      <End Role="ChiTietNhapHang" EntitySet="ChiTietNhapHang" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietXuatHang_HangHoa" Association="Self.ChiTietXuatHang_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoa" />
+      <End Role="ChiTietXuatHang" EntitySet="ChiTietXuatHang" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietXuatHang_PhieuXuatHang" Association="Self.ChiTietXuatHang_PhieuXuatHang">
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHang" />
+      <End Role="ChiTietXuatHang" EntitySet="ChiTietXuatHang" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietYeuCau_HangHoa" Association="Self.ChiTietYeuCau_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoa" />
+      <End Role="ChiTietYeuCau" EntitySet="ChiTietYeuCau" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietYeuCau_YeuCauXuatHang" Association="Self.ChiTietYeuCau_YeuCauXuatHang">
+      <End Role="YeuCauXuatHang" EntitySet="YeuCauXuatHang" />
+      <End Role="ChiTietYeuCau" EntitySet="ChiTietYeuCau" />
+    </AssociationSet>
+    <AssociationSet Name="HangHoa_DanhMucHangHoa" Association="Self.HangHoa_DanhMucHangHoa">
+      <End Role="DanhMucHangHoa" EntitySet="DanhMucHangHoa" />
+      <End Role="HangHoa" EntitySet="HangHoa" />
+    </AssociationSet>
+    <AssociationSet Name="DonDatHangNCC_NhaCungCap" Association="Self.DonDatHangNCC_NhaCungCap">
+      <End Role="NhaCungCap" EntitySet="NhaCungCap" />
+      <End Role="DonDatHangNCC" EntitySet="DonDatHangNCC" />
+    </AssociationSet>
+    <AssociationSet Name="HoaDonNCC_DonDatHangNCC" Association="Self.HoaDonNCC_DonDatHangNCC">
+      <End Role="DonDatHangNCC" EntitySet="DonDatHangNCC" />
+      <End Role="HoaDonNCC" EntitySet="HoaDonNCC" />
+    </AssociationSet>
+    <AssociationSet Name="HangHoa_NhaCungCap" Association="Self.HangHoa_NhaCungCap">
+      <End Role="NhaCungCap" EntitySet="NhaCungCap" />
+      <End Role="HangHoa" EntitySet="HangHoa" />
+    </AssociationSet>
+    <AssociationSet Name="CongNoNCC_HoaDonNCC" Association="Self.CongNoNCC_HoaDonNCC">
+      <End Role="HoaDonNCC" EntitySet="HoaDonNCC" />
+      <End Role="CongNoNCC" EntitySet="CongNoNCC" />
+    </AssociationSet>
+    <AssociationSet Name="ThanhToanNCC_HoaDonNCC" Association="Self.ThanhToanNCC_HoaDonNCC">
+      <End Role="HoaDonNCC" EntitySet="HoaDonNCC" />
+      <End Role="ThanhToanNCC" EntitySet="ThanhToanNCC" />
+    </AssociationSet>
+    <AssociationSet Name="ThanhToanNCC_LoaiThanhToan" Association="Self.ThanhToanNCC_LoaiThanhToan">
+      <End Role="LoaiThanhToan" EntitySet="LoaiThanhToan" />
+      <End Role="ThanhToanNCC" EntitySet="ThanhToanNCC" />
+    </AssociationSet>
+    <AssociationSet Name="NguoiDung_VaiTro" Association="Self.NguoiDung_VaiTro">
+      <End Role="VaiTro" EntitySet="VaiTro" />
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+    </AssociationSet>
+    <AssociationSet Name="CongNoNCC_NhaCungCap" Association="Self.CongNoNCC_NhaCungCap">
+      <End Role="NhaCungCap" EntitySet="NhaCungCap" />
+      <End Role="CongNoNCC" EntitySet="CongNoNCC" />
+    </AssociationSet>
+    <AssociationSet Name="ThanhToanNCC_NhaCungCap" Association="Self.ThanhToanNCC_NhaCungCap">
+      <End Role="NhaCungCap" EntitySet="NhaCungCap" />
+      <End Role="ThanhToanNCC" EntitySet="ThanhToanNCC" />
+    </AssociationSet>
+    <AssociationSet Name="PhieuNhapHang_TinhTrang" Association="Self.PhieuNhapHang_TinhTrang">
+      <End Role="TinhTrang" EntitySet="TinhTrang" />
+      <End Role="PhieuNhapHang" EntitySet="PhieuNhapHang" />
+    </AssociationSet>
+    <AssociationSet Name="PhieuXuatHang_TinhTrang" Association="Self.PhieuXuatHang_TinhTrang">
+      <End Role="TinhTrang" EntitySet="TinhTrang" />
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHang" />
+    </AssociationSet>
+    <AssociationSet Name="PhieuXuatHang_YeuCauXuatHang" Association="Self.PhieuXuatHang_YeuCauXuatHang">
+      <End Role="YeuCauXuatHang" EntitySet="YeuCauXuatHang" />
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHang" />
+    </AssociationSet>
+    <AssociationSet Name="YeuCauXuatHang_TinhTrang" Association="Self.YeuCauXuatHang_TinhTrang">
+      <End Role="TinhTrang" EntitySet="TinhTrang" />
+      <End Role="YeuCauXuatHang" EntitySet="YeuCauXuatHang" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

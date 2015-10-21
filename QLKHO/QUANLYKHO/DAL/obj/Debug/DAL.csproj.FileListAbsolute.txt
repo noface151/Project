@@ -1,0 +1,10 @@
+D:\QLKHO\QUANLYKHO\DAL\bin\Debug\DAL.dll.config
+D:\QLKHO\QUANLYKHO\DAL\bin\Debug\DAL.dll
+D:\QLKHO\QUANLYKHO\DAL\bin\Debug\DAL.pdb
+D:\QLKHO\QUANLYKHO\DAL\bin\Debug\EntityFramework.dll
+D:\QLKHO\QUANLYKHO\DAL\bin\Debug\Properties.dll
+D:\QLKHO\QUANLYKHO\DAL\bin\Debug\Properties.pdb
+D:\QLKHO\QUANLYKHO\DAL\bin\Debug\EntityFramework.xml
+D:\QLKHO\QUANLYKHO\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\QLKHO\QUANLYKHO\DAL\obj\Debug\DAL.dll
+D:\QLKHO\QUANLYKHO\DAL\obj\Debug\DAL.pdb
